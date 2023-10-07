@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../queries.js');
 
+//Menampilkan data seluruh list film
 router.get('/film', (req, res) => {
     pool.query('SELECT * FROM film', (err, result) => {
         if(err){
@@ -11,6 +12,7 @@ router.get('/film', (req, res) => {
     })
 });
 
+//Menampilkan data film tertentu berdasarkan id
 router.get('/film/:film_id', (req, res) => {
     const filmById = req.params.film_id;
 

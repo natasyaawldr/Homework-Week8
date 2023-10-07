@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../queries.js');
 
+//Menampilkan data list category
 router.get('/category', (req, res) => {
     pool.query('SELECT * FROM category', (err, result) => {
         if(err){
@@ -11,6 +12,7 @@ router.get('/category', (req, res) => {
     })
 });
 
+//Menampilkan data list film berdasarkan category
 router.get('/category/:name', (req, res) => {
     const filmByCategory = req.params.name
 
